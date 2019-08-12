@@ -1,6 +1,9 @@
 const Joi = require('joi');
 const express = require('express');
 const router = express.Router();
+const pool = require('pg');
+
+const connect = ""
 
 router.use(express.json());
 
