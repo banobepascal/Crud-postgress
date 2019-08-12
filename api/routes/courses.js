@@ -10,3 +10,5 @@ const courses = [
 router.get('/', (req, res) => {
     res.send(courses);
 });
+
+module.exports = router;
