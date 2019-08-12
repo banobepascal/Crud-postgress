@@ -4,11 +4,6 @@ const app = express();
 
 app.use("/api", courses);
 
-app.use((req, res, next) => {
-    res.status(200).json({
-        message: "it works"
-    });
-});
 
 module.exports = app;
 
