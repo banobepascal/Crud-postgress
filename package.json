@@ -4,7 +4,7 @@
   "description": "A rest Api with Postgres",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "create": "node ./database/db createTables"
   },
   "author": "Banobe Pascal",
   "license": "ISC",
