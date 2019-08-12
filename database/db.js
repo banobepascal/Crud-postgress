@@ -12,7 +12,7 @@ const pool = new pg.Pool(config);
 
 pool.on('connect', () => {
   console.log('Connected to database');
-})
+});
 
 const createTables = () => {
   const profileTable = `CREATE TABLE IF NOT EXISTS
