@@ -7,8 +7,10 @@ const courses = [
     {id: 3, name: "course3"}
 ];
 
-router.get('/', (req, res) => {
+router.get('/courses', (req, res) => {
     res.send(courses);
 });
+
+
 
 module.exports = router;
