@@ -4,7 +4,7 @@
   "description": "A rest Api with Postgres",
   "main": "index.js",
   "scripts": {
-    "create": "node ./migrations/db createTables"
+    "create": "node ./migrations/dbSetup createTables"
   },
   "author": "Banobe Pascal",
   "license": "ISC",
