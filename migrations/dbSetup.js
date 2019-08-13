@@ -1,4 +1,5 @@
-const setupTables = require('./dbquery');
+import { users,  authentication } from './dbquery';
+// const {users,  authentication} = require('./dbquery');
 const pg = require('pg');
 
 const config = {
@@ -22,16 +23,16 @@ pool.on('connect', () => {
 
 
 const createTables = () => {
-  const profileTable = `CREATE TABLE IF NOT EXISTS
-      profiles(
-        id SERIAL PRIMARY KEY,
-        profile_name VARCHAR(128) NOT NULL,
-        profile_age INT NOT NULL,
-        profile_contact VARCHAR(15) NOT NULL,
-        profile_status VARCHAR(128) NOT NULL
-      )`;
+  // const profileTable = `CREATE TABLE IF NOT EXISTS
+  //     profiles(
+  //       id SERIAL PRIMARY KEY,
+  //       profile_name VARCHAR(128) NOT NULL,
+  //       profile_age INT NOT NULL,
+  //       profile_contact VARCHAR(15) NOT NULL,
+  //       profile_status VARCHAR(128) NOT NULL
+  //     )`;
  
-      pool.query(setupTables)
+      pool.query(users, authentication)
         .then((res) => {
           console.log(res);
           pool.end();

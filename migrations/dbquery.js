@@ -19,5 +19,5 @@ const dropTables = `
         DROP TABLE IF EXISTS users cascade;
 `;
 
-module.exports = `${users}${authentication}`;
+export default  `${users}${authentication}`;
 module.exports = dropTables;
