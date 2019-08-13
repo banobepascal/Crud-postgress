@@ -1,4 +1,5 @@
-import { users,  authentication } from './dbquery';
+// import { users,  authentication } from './dbquery';
+import setupTables from './dbquery';
 // const {users,  authentication} = require('./dbquery');
 const pg = require('pg');
 
@@ -32,7 +33,7 @@ const createTables = () => {
   //       profile_status VARCHAR(128) NOT NULL
   //     )`;
  
-      pool.query(users, authentication)
+      pool.query(setupTables)
         .then((res) => {
           console.log(res);
           pool.end();

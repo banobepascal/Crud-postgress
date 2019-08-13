@@ -15,9 +15,9 @@ CREATE TABLE IF NOT EXISTS authentication(
 );`;
 
 
-const dropTables = `
-        DROP TABLE IF EXISTS users cascade;
-`;
+// const dropTables = `
+//         DROP TABLE IF EXISTS users cascade;
+// `;
 
 export default  `${users}${authentication}`;
-module.exports = dropTables;
+export {dropTables};
