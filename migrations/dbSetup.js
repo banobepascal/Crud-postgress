@@ -15,30 +15,31 @@ pool.on('connect', () => {
   console.log('Connected to database');
 });
 
+// pool.query(setupTables, (error) => {
+//   console.log('error', error);
+//   pool.end();
+// });
 
 
 const createTables = () => {
-  // const profileTable = `CREATE TABLE IF NOT EXISTS
-  //     profiles(
-  //       id SERIAL PRIMARY KEY,
-  //       profile_name VARCHAR(128) NOT NULL,
-  //       profile_age INT NOT NULL,
-  //       profile_contact VARCHAR(15) NOT NULL,
-  //       profile_status VARCHAR(128) NOT NULL
-  //     )`;
-  pool.query(setupTables, (error) => {
-    console.log('error', error);
-    pool.end();
-  });
-      // pool.query(setupTables)
-      //   .then((res) => {
-      //     console.log(res);
-      //     pool.end();
-      //   })
-        // .catch((err) => {
-        //   console.log(err);
-        //   pool.end();
-        // });
+  const profileTable = `CREATE TABLE IF NOT EXISTS
+      profiles(
+        id SERIAL PRIMARY KEY,
+        profile_name VARCHAR(128) NOT NULL,
+        profile_age INT NOT NULL,
+        profile_contact VARCHAR(15) NOT NULL,
+        profile_status VARCHAR(128) NOT NULL
+      )`;
+ 
+      pool.query(setupTables)
+        .then((res) => {
+          console.log(res);
+          pool.end();
+        })
+        .catch((err) => {
+          console.log(err);
+          pool.end();
+        });
 };
 
 pool.on('remove', () => {
