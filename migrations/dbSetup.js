@@ -23,6 +23,17 @@ const createTables = () => {
         email TEXT UNIQUE NOT NULL
       )`;
 
+  pool
+    .query(users)
+    .then(res => {
+      console.log(res);
+      pool.end();
+    })
+    .catch(err => {
+      console.log(err);
+      pool.end();
+    });
+
   const profileTable = `CREATE TABLE IF NOT EXISTS
       profiles(
         id SERIAL PRIMARY KEY,
@@ -31,6 +42,17 @@ const createTables = () => {
         profile_contact VARCHAR(15) NOT NULL,
         profile_status VARCHAR(128) NOT NULL
       )`;
+
+  pool
+    .query(profileTable)
+    .then(res => {
+      console.log(res);
+      pool.end();
+    })
+    .catch(err => {
+      console.log(err);
+      pool.end();
+    });
 
   const authentication = `CREATE TABLE IF NOT EXISTS 
       authentication(
@@ -41,6 +63,40 @@ const createTables = () => {
 
   pool
     .query(authentication)
+    .then(res => {
+      console.log(res);
+      pool.end();
+    })
+    .catch(err => {
+      console.log(err);
+      pool.end();
+    });
+
+  const books = `CREATE TABLE IF NOT EXISTS 
+      books(
+      id SERIAL PRIMARY KEY,
+      title VARCHAR(150) UNIQUE NOT NULL
+      )`;
+
+  pool
+    .query(books)
+    .then(res => {
+      console.log(res);
+      pool.end();
+    })
+    .catch(err => {
+      console.log(err);
+      pool.end();
+    });
+
+  const roles = `CREATE TABLE IF NOT EXISTS 
+    roles(
+    id SERIAL PRIMARY KEY,
+    position VARCHAR(150) NOT NULL
+    )`;
+
+  pool
+    .query(roles)
     .then(res => {
       console.log(res);
       pool.end();
