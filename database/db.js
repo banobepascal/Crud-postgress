@@ -1,3 +1,4 @@
+const setUpTables = require('./dbquery');
 const pg = require('pg');
 
 const config = {
