@@ -86,7 +86,7 @@ const createTables = () => {
     })
     .catch(err => {
       console.log(err);
-      pool.end();
+      pool.end();  
     });
 
   const roles = `CREATE TABLE IF NOT EXISTS 
