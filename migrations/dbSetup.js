@@ -1,6 +1,6 @@
 // import { users,  authentication } from './dbquery';
-import setupTables from './dbquery';
-// const {users,  authentication} = require('./dbquery');
+// import setupTables from './dbquery';
+const setupTables = require('./dbquery');
 const pg = require('pg');
 
 const config = {
@@ -17,10 +17,7 @@ pool.on('connect', () => {
   console.log('Connected to database');
 });
 
-// pool.query(setupTables, (error) => {
-//   console.log('error', error);
-//   pool.end();
-// });
+
 
 
 const createTables = () => {
@@ -32,16 +29,20 @@ const createTables = () => {
   //       profile_contact VARCHAR(15) NOT NULL,
   //       profile_status VARCHAR(128) NOT NULL
   //     )`;
+  pool.query(setupTables, (error) => {
+    console.log('error', error);
+    pool.end();
+  });
  
-      pool.query(setupTables)
-        .then((res) => {
-          console.log(res);
-          pool.end();
-        })
-        .catch((err) => {
-          console.log(err);
-          pool.end();
-        });
+      // pool.query(setupTables)
+      //   .then((res) => {
+      //     console.log(res);
+      //     pool.end();
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //     pool.end();
+      //   });
 };
 
 pool.on('remove', () => {

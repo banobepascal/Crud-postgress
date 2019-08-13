@@ -1,12 +1,12 @@
-import { Client } from 'pg';
-// import dotenv from 'dotenv';
-import { dropTables } from './dbquery';
+// import { Client } from 'pg';
+// // import dotenv from 'dotenv';
+// import { dropTables } from './dbquery';
 
-// dotenv.config();
+// // dotenv.config();
 
-const client = new Client();
-client.query(dropTables, (error) => {
-  console.log('error', error);
-  client.end();
-});
-client.connect();
+// const client = new Client();
+// client.query(dropTables, (error) => {
+//   console.log('error', error);
+//   client.end();
+// });
+// client.connect();
