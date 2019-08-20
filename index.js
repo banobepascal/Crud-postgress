@@ -1,6 +1,6 @@
-const courses = require('./api/routes/courses');
-const db = require('./api/routes/person');
-const express = require('express');
+const courses = require("./api/routes/courses");
+const db = require("./api/routes/person");
+const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 
@@ -13,6 +13,4 @@ app.post("/people", db.createUser);
 app.put("/people/:id", db.updateUser);
 app.delete("/people/:id", db.deleteUser);
 
-
 module.exports = app;
-
