@@ -7,7 +7,6 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/api", courses);
 app.get("/people", db.getUsers);
 app.get("/people/:id", db.getUserByID);
 app.post("/people", db.createUser);
