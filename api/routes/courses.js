@@ -4,8 +4,6 @@ const router = express.Router();
 const pool = require('pg');
 const bodyParser = require("body-parser");
 
-const connect = "postgres://recipe:recipe@localhost/recipe-book";
-
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: false}));
 
