@@ -14,7 +14,7 @@ router.get("/person", (req, res) => {
   pool.connect((err, client, done) => {
     const query = "SELECT * FROM users";
     client.query(query, (error, result) => {
-        done();
+      done();
       if (error) {
         res.status(400).json({ error });
       }
@@ -34,30 +34,30 @@ router.get("/person", (req, res) => {
 });
 
 router.post("/people", (res, req) => {
-    const data = {
-        firstname : req.body.firstName,
-        lastname : req.body.lastName,
-        email : req.body.email,
-    }
+  const data = {
+    firstname: req.body.firstName,
+    lastname: req.body.lastName,
+    email: req.body.email
+  };
 
-    pool.connect((err, client, done) => {
-        const query = 'INSERT INTO users(first_name, last_name, email) VALUES($1, $2,  $3) RETURNING *';
-        const values = [data.firstname, data.lastname, data.email];
+  pool.connect((err, client, done) => {
+    const query =
+      "INSERT INTO users(first_name, last_name, email) VALUES($1,$2,$3) RETURNING *";
+    const values = [data.firstname, data.lastname, data.email];
 
-        client.query(query, values, (error, result) => {
-            done();
-            if(error) {
-                res.status(404).json({error});
-            } else {
-                res.status(200).send({
-                    status : "Successful",
-                    message : "You have added data",
-                    result : result.rows[0],
-                })
-            }
-
+    client.query(query, values, (error, result) => {
+      done();
+      if (error) {
+        res.status(404).json({ error });
+      } else {
+        res.status(200).send({
+          status: "Successful",
+          message: "You have added data",
+          result: result.rows[0]
         });
+      }
     });
+  });
 });
 
 module.exports = router;
