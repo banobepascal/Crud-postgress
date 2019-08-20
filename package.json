@@ -4,6 +4,7 @@
   "description": "A rest Api with Postgres",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "create": "node ./migrations/dbSetup createTables"
   },
   "author": "Banobe Pascal",

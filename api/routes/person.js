@@ -34,29 +34,13 @@ router.get("/person", (req, res) => {
 });
 
 router.post("/people", (res, req) => {
-  const data = {
-    firstname: req.body.firstName,
-    lastname: req.body.lastName,
-    email: req.body.email
-  };
+  const { first_name, last_name, email } = req.body
 
-  pool.connect((err, client, done) => {
-    const query =
-      "INSERT INTO users(first_name, last_name, email) VALUES($1,$2,$3) RETURNING *";
-    const values = [data.firstname, data.lastname, data.email];
-
-    client.query(query, values, (error, result) => {
-      done();
-      if (error) {
-        res.status(404).json({ error });
-      } else {
-        res.status(200).send({
-          status: "Successful",
-          message: "You have added data",
-          result: result.rows[0]
-        });
-      }
-    });
+  pool.query('INSERT INTO users (first_name, last_name, email) VALUES ($1, $2, $3)', [first_name, last_name, email], (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(201).send(`User added with ID: ${results.insertId}`)
   });
 });
 
